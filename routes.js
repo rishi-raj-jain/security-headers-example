@@ -11,27 +11,18 @@ const ContentSecurityPolicy = `
   media-src 'none';
   connect-src *;
   font-src 'self' *.gstatic.com;
-`;
+`
 
 module.exports = new Router()
-  .get("/", ({ setResponseHeader }) => {
-    setResponseHeader(
-      "Content-Security-Policy",
-      ContentSecurityPolicy.replace(/\n/g, "")
-    );
-    setResponseHeader("X-Content-Type-Options", "nosniff");
-    setResponseHeader("X-Frame-Options", "DENY");
-    setResponseHeader("Cross-Origin-Resource-Policy", "cross-origin");
-    setResponseHeader("Cross-Origin-Embedder-Policy", "unsafe-none");
-    setResponseHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
-    setResponseHeader(
-      "Strict-Transport-Security",
-      "max-age=31536000; includeSubDomains"
-    );
-    setResponseHeader("Referrer-Policy", "origin-when-cross-origin");
-    setResponseHeader(
-      "Permissions-Policy",
-      "camera=(), microphone=(), geolocation=()"
-    );
+  .get('/', ({ setResponseHeader }) => {
+    setResponseHeader('Content-Security-Policy', ContentSecurityPolicy.replace(/\n/g, ''))
+    setResponseHeader('X-Content-Type-Options', 'nosniff')
+    setResponseHeader('X-Frame-Options', 'DENY')
+    setResponseHeader('Cross-Origin-Resource-Policy', 'cross-origin')
+    setResponseHeader('Cross-Origin-Embedder-Policy', 'unsafe-none')
+    setResponseHeader('Cross-Origin-Opener-Policy', 'same-origin-allow-popups')
+    setResponseHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains')
+    setResponseHeader('Referrer-Policy', 'origin-when-cross-origin')
+    setResponseHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
   })
   .use(sapperRoutes) // automatically adds routes for all files under /pages

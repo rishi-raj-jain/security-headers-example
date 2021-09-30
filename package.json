@@ -9,7 +9,8 @@
     "dev": "sapper dev",
     "build": "sapper build",
     "export": "sapper export",
-    "start": "node __sapper__/build"
+    "start": "node __sapper__/build",
+    "format": "prettier '**/*' --write --ignore-unknown"
   },
   "dependencies": {
     "compression": "^1.7.1",
@@ -17,13 +18,14 @@
     "sirv": "^1.0.0"
   },
   "devDependencies": {
-    "@layer0/cli": "^3.16.0",
-    "@layer0/core": "^3.16.0",
-    "@layer0/devtools": "^3.16.0",
-    "@layer0/prefetch": "^3.16.0",
-    "@layer0/sapper": "^3.16.0",
-    "@layer0/svelte": "^3.16.0",
+    "@layer0/cli": "^3.16.11",
+    "@layer0/core": "^3.16.11",
+    "@layer0/devtools": "^3.16.11",
+    "@layer0/prefetch": "^3.16.11",
+    "@layer0/sapper": "^3.16.11",
+    "@layer0/svelte": "^3.16.11",
     "file-loader": "^6.0.0",
+    "prettier": "^2.4.1",
     "sapper": "^0.28.0",
     "svelte": "^3.17.3",
     "svelte-loader": "^3.0.0",

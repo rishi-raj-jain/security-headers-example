@@ -1,619 +1,638 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="theme-color" content="#333333" />
+    %sapper.base%
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="logo-192.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      />
+    </noscript>
+    <style>
+      @charset "UTF-8";
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<meta name="theme-color" content="#333333">
-	%sapper.base%
-	<link rel="manifest" href="manifest.json" crossorigin="use-credentials">
-	<link rel="icon" type="image/png" href="favicon.png">
-	<link rel="apple-touch-icon" href="logo-192.png">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
-	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" media="print"
-		onload="this.media='all'" />
-	<noscript>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
-	</noscript>
-	<style>
-		@charset "UTF-8";
+      * {
+        font-family: Inter, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
 
-		* {
-			font-family: Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif
-		}
+      ::selection {
+        color: #000;
+        background: #79ffe1;
+      }
 
-		::selection {
-			color: #000;
-			background: #79ffe1
-		}
+      #gist110376078 {
+        width: 75vw;
+      }
 
-		#gist110376078 {
-			width: 75vw
-		}
+      .w-75 {
+        width: 75vw;
+      }
 
-		.w-75 {
-			width: 75vw
-		}
-
-		/*!
+      /*!
  * Bootstrap v5.0.2 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-		:root {
-			--bs-blue: #0d6efd;
-			--bs-indigo: #6610f2;
-			--bs-purple: #6f42c1;
-			--bs-pink: #d63384;
-			--bs-red: #dc3545;
-			--bs-orange: #fd7e14;
-			--bs-yellow: #ffc107;
-			--bs-green: #198754;
-			--bs-teal: #20c997;
-			--bs-cyan: #0dcaf0;
-			--bs-white: #fff;
-			--bs-gray: #6c757d;
-			--bs-gray-dark: #343a40;
-			--bs-primary: #0d6efd;
-			--bs-secondary: #6c757d;
-			--bs-success: #198754;
-			--bs-info: #0dcaf0;
-			--bs-warning: #ffc107;
-			--bs-danger: #dc3545;
-			--bs-light: #f8f9fa;
-			--bs-dark: #212529;
-			--bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-			--bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-			--bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0))
-		}
-
-		*,
-		::after,
-		::before {
-			box-sizing: border-box
-		}
-
-		@media (prefers-reduced-motion:no-preference) {
-			:root {
-				scroll-behavior: smooth
-			}
-		}
-
-		body {
-			margin: 0;
-			font-family: var(--bs-font-sans-serif);
-			font-size: 1rem;
-			font-weight: 400;
-			line-height: 1.5;
-			color: #212529;
-			background-color: #fff;
-			-webkit-text-size-adjust: 100%;
-			-webkit-tap-highlight-color: transparent
-		}
-
-		.h1,
-		.h2,
-		.h3,
-		.h4,
-		.h5,
-		.h6,
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
-			margin-top: 0;
-			margin-bottom: .5rem;
-			font-weight: 500;
-			line-height: 1.2
-		}
-
-		.h1,
-		h1 {
-			font-size: calc(1.375rem + 1.5vw)
-		}
-
-		@media (min-width:1200px) {
-
-			.h1,
-			h1 {
-				font-size: 2.5rem
-			}
-		}
-
-		.h2,
-		h2 {
-			font-size: calc(1.325rem + .9vw)
-		}
-
-		@media (min-width:1200px) {
-
-			.h2,
-			h2 {
-				font-size: 2rem
-			}
-		}
-
-		.h3,
-		h3 {
-			font-size: calc(1.3rem + .6vw)
-		}
-
-		@media (min-width:1200px) {
-
-			.h3,
-			h3 {
-				font-size: 1.75rem
-			}
-		}
-
-		.h4,
-		h4 {
-			font-size: calc(1.275rem + .3vw)
-		}
-
-		@media (min-width:1200px) {
-
-			.h4,
-			h4 {
-				font-size: 1.5rem
-			}
-		}
-
-		.h5,
-		h5 {
-			font-size: 1.25rem
-		}
-
-		.h6,
-		h6 {
-			font-size: 1rem
-		}
-
-		p {
-			margin-top: 0;
-			margin-bottom: 1rem
-		}
-
-		blockquote {
-			margin: 0 0 1rem
-		}
-
-		b {
-			font-weight: bolder
-		}
-
-		a {
-			color: #0d6efd;
-			text-decoration: underline
-		}
-
-		a:hover {
-			color: #0a58ca
-		}
-
-		a:not([href]):not([class]),
-		a:not([href]):not([class]):hover {
-			color: inherit;
-			text-decoration: none
-		}
-
-		code {
-			font-family: var(--bs-font-monospace);
-			font-size: 1em;
-			direction: ltr;
-			unicode-bidi: bidi-override
-		}
-
-		code {
-			font-size: .875em;
-			color: #d63384;
-			word-wrap: break-word
-		}
-
-		a>code {
-			color: inherit
-		}
-
-		[role=button] {
-			cursor: pointer
-		}
-
-		[list]::-webkit-calendar-picker-indicator {
-			display: none
-		}
-
-		[type=button],
-		[type=reset],
-		[type=submit] {
-			-webkit-appearance: button
-		}
-
-		[type=button]:not(:disabled),
-		[type=reset]:not(:disabled),
-		[type=submit]:not(:disabled) {
-			cursor: pointer
-		}
-
-		::-moz-focus-inner {
-			padding: 0;
-			border-style: none
-		}
-
-		::-webkit-datetime-edit-day-field,
-		::-webkit-datetime-edit-fields-wrapper,
-		::-webkit-datetime-edit-hour-field,
-		::-webkit-datetime-edit-minute,
-		::-webkit-datetime-edit-month-field,
-		::-webkit-datetime-edit-text,
-		::-webkit-datetime-edit-year-field {
-			padding: 0
-		}
-
-		::-webkit-inner-spin-button {
-			height: auto
-		}
-
-		[type=search] {
-			outline-offset: -2px;
-			-webkit-appearance: textfield
-		}
-
-		::-webkit-search-decoration {
-			-webkit-appearance: none
-		}
-
-		::-webkit-color-swatch-wrapper {
-			padding: 0
-		}
-
-		::file-selector-button {
-			font: inherit
-		}
-
-		::-webkit-file-upload-button {
-			font: inherit;
-			-webkit-appearance: button
-		}
-
-		[hidden] {
-			display: none !important
-		}
-
-		.blockquote {
-			margin-bottom: 1rem;
-			font-size: 1.25rem
-		}
-
-		.blockquote>:last-child {
-			margin-bottom: 0
-		}
-
-		@-webkit-keyframes progress-bar-stripes {
-			0% {
-				background-position-x: 1rem
-			}
-		}
-
-		@keyframes progress-bar-stripes {
-			0% {
-				background-position-x: 1rem
-			}
-		}
-
-		@-webkit-keyframes spinner-border {
-			to {
-				transform: rotate(360deg)
-			}
-		}
-
-		@keyframes spinner-border {
-			to {
-				transform: rotate(360deg)
-			}
-		}
-
-		@-webkit-keyframes spinner-grow {
-			0% {
-				transform: scale(0)
-			}
-
-			50% {
-				opacity: 1;
-				transform: none
-			}
-		}
-
-		@keyframes spinner-grow {
-			0% {
-				transform: scale(0)
-			}
-
-			50% {
-				opacity: 1;
-				transform: none
-			}
-		}
-
-		.align-top {
-			vertical-align: top !important
-		}
-
-		.d-flex {
-			display: flex !important
-		}
-
-		.top-0 {
-			top: 0 !important
-		}
-
-		.top-50 {
-			top: 50% !important
-		}
-
-		.top-100 {
-			top: 100% !important
-		}
-
-		.start-0 {
-			left: 0 !important
-		}
-
-		.start-50 {
-			left: 50% !important
-		}
-
-		.start-100 {
-			left: 100% !important
-		}
-
-		.border {
-			border: 1px solid #dee2e6 !important
-		}
-
-		.border-0 {
-			border: 0 !important
-		}
-
-		.border-top {
-			border-top: 1px solid #dee2e6 !important
-		}
-
-		.border-top-0 {
-			border-top: 0 !important
-		}
-
-		.border-start {
-			border-left: 1px solid #dee2e6 !important
-		}
-
-		.border-start-0 {
-			border-left: 0 !important
-		}
-
-		.border-dark {
-			border-color: #212529 !important
-		}
-
-		.border-1 {
-			border-width: 1px !important
-		}
-
-		.border-2 {
-			border-width: 2px !important
-		}
-
-		.border-3 {
-			border-width: 3px !important
-		}
-
-		.border-4 {
-			border-width: 4px !important
-		}
-
-		.border-5 {
-			border-width: 5px !important
-		}
-
-		.w-25 {
-			width: 25% !important
-		}
-
-		.w-50 {
-			width: 50% !important
-		}
-
-		.w-75 {
-			width: 75% !important
-		}
-
-		.w-100 {
-			width: 100% !important
-		}
-
-		.h-25 {
-			height: 25% !important
-		}
-
-		.h-50 {
-			height: 50% !important
-		}
-
-		.h-75 {
-			height: 75% !important
-		}
-
-		.h-100 {
-			height: 100% !important
-		}
-
-		.flex-column {
-			flex-direction: column !important
-		}
-
-		.align-items-start {
-			align-items: flex-start !important
-		}
-
-		.align-items-center {
-			align-items: center !important
-		}
-
-		.mt-0 {
-			margin-top: 0 !important
-		}
-
-		.mt-1 {
-			margin-top: .25rem !important
-		}
-
-		.mt-2 {
-			margin-top: .5rem !important
-		}
-
-		.mt-3 {
-			margin-top: 1rem !important
-		}
-
-		.mt-4 {
-			margin-top: 1.5rem !important
-		}
-
-		.mt-5 {
-			margin-top: 3rem !important
-		}
-
-		.mb-0 {
-			margin-bottom: 0 !important
-		}
-
-		.mb-1 {
-			margin-bottom: .25rem !important
-		}
-
-		.mb-2 {
-			margin-bottom: .5rem !important
-		}
-
-		.mb-3 {
-			margin-bottom: 1rem !important
-		}
-
-		.mb-4 {
-			margin-bottom: 1.5rem !important
-		}
-
-		.mb-5 {
-			margin-bottom: 3rem !important
-		}
-
-		.p-0 {
-			padding: 0 !important
-		}
-
-		.p-1 {
-			padding: .25rem !important
-		}
-
-		.p-2 {
-			padding: .5rem !important
-		}
-
-		.p-3 {
-			padding: 1rem !important
-		}
-
-		.p-4 {
-			padding: 1.5rem !important
-		}
-
-		.p-5 {
-			padding: 3rem !important
-		}
-
-		.pt-0 {
-			padding-top: 0 !important
-		}
-
-		.pt-1 {
-			padding-top: .25rem !important
-		}
-
-		.pt-2 {
-			padding-top: .5rem !important
-		}
-
-		.pt-3 {
-			padding-top: 1rem !important
-		}
-
-		.pt-4 {
-			padding-top: 1.5rem !important
-		}
-
-		.pt-5 {
-			padding-top: 3rem !important
-		}
-
-		.pb-0 {
-			padding-bottom: 0 !important
-		}
-
-		.pb-1 {
-			padding-bottom: .25rem !important
-		}
-
-		.pb-2 {
-			padding-bottom: .5rem !important
-		}
-
-		.pb-3 {
-			padding-bottom: 1rem !important
-		}
-
-		.pb-4 {
-			padding-bottom: 1.5rem !important
-		}
-
-		.pb-5 {
-			padding-bottom: 3rem !important
-		}
-
-		.fw-normal {
-			font-weight: 400 !important
-		}
-
-		.fw-bold {
-			font-weight: 700 !important
-		}
-	</style>
-	%sapper.scripts%
-	%sapper.styles%
-	%sapper.head%
-</head>
-
-<body class="d-flex flex-column align-items-center">
-	<div class="pb-5 w-75">
-		<div class="mb-5" id="sapper">%sapper.html%</div>
-		<script src="https://gist.github.com/rishi-raj-jain/6ca32ef2f6858070e1434edc3ec9b521.js"></script>
-		<h2 class="mt-5 fw-normal">Importance of Security Headers</h2>
-		<blockquote class="mt-3 border-start border-dark p-2">
-			As per <a rel="noopener noreferrer" target="_blank" href="https://ieeexplore.ieee.org/document/8405025">HTTP
-				security headers analysis of top one million websites</a>, "Globally, including both HTTP and HTTPS
-			sites, CSP is implemented in 1.6% and CSP report only version in just 0.2% of sites."
-		</blockquote>
-		<p class="mt-3">
-			Shocking! right? and the lack of CSP HTTP Header takes down the defense mechanisms against Cross-Site
-			Scripting (XSS) and other client-side injection attacks <a rel="noopener noreferrer" target="_blank"
-				href="https://en.wikipedia.org/wiki/Samy_(computer_worm)">which once took down MySpace.</a>
-		</p>
-		<p class="fw-bold">
-			Author: <a rel="noopener noreferrer" target="_blank" href="https://rishi.app/about">Rishi Raj Jain</a>
-		</p>
-	</div>
-</body>
-
+      :root {
+        --bs-blue: #0d6efd;
+        --bs-indigo: #6610f2;
+        --bs-purple: #6f42c1;
+        --bs-pink: #d63384;
+        --bs-red: #dc3545;
+        --bs-orange: #fd7e14;
+        --bs-yellow: #ffc107;
+        --bs-green: #198754;
+        --bs-teal: #20c997;
+        --bs-cyan: #0dcaf0;
+        --bs-white: #fff;
+        --bs-gray: #6c757d;
+        --bs-gray-dark: #343a40;
+        --bs-primary: #0d6efd;
+        --bs-secondary: #6c757d;
+        --bs-success: #198754;
+        --bs-info: #0dcaf0;
+        --bs-warning: #ffc107;
+        --bs-danger: #dc3545;
+        --bs-light: #f8f9fa;
+        --bs-dark: #212529;
+        --bs-font-sans-serif: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+          'Noto Sans', 'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+          'Segoe UI Symbol', 'Noto Color Emoji';
+        --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+          'Courier New', monospace;
+        --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+      }
+
+      *,
+      ::after,
+      ::before {
+        box-sizing: border-box;
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        :root {
+          scroll-behavior: smooth;
+        }
+      }
+
+      body {
+        margin: 0;
+        font-family: var(--bs-font-sans-serif);
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .h1,
+      .h2,
+      .h3,
+      .h4,
+      .h5,
+      .h6,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+
+      .h1,
+      h1 {
+        font-size: calc(1.375rem + 1.5vw);
+      }
+
+      @media (min-width: 1200px) {
+        .h1,
+        h1 {
+          font-size: 2.5rem;
+        }
+      }
+
+      .h2,
+      h2 {
+        font-size: calc(1.325rem + 0.9vw);
+      }
+
+      @media (min-width: 1200px) {
+        .h2,
+        h2 {
+          font-size: 2rem;
+        }
+      }
+
+      .h3,
+      h3 {
+        font-size: calc(1.3rem + 0.6vw);
+      }
+
+      @media (min-width: 1200px) {
+        .h3,
+        h3 {
+          font-size: 1.75rem;
+        }
+      }
+
+      .h4,
+      h4 {
+        font-size: calc(1.275rem + 0.3vw);
+      }
+
+      @media (min-width: 1200px) {
+        .h4,
+        h4 {
+          font-size: 1.5rem;
+        }
+      }
+
+      .h5,
+      h5 {
+        font-size: 1.25rem;
+      }
+
+      .h6,
+      h6 {
+        font-size: 1rem;
+      }
+
+      p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+
+      blockquote {
+        margin: 0 0 1rem;
+      }
+
+      b {
+        font-weight: bolder;
+      }
+
+      a {
+        color: #0d6efd;
+        text-decoration: underline;
+      }
+
+      a:hover {
+        color: #0a58ca;
+      }
+
+      a:not([href]):not([class]),
+      a:not([href]):not([class]):hover {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      code {
+        font-family: var(--bs-font-monospace);
+        font-size: 1em;
+        direction: ltr;
+        unicode-bidi: bidi-override;
+      }
+
+      code {
+        font-size: 0.875em;
+        color: #d63384;
+        word-wrap: break-word;
+      }
+
+      a > code {
+        color: inherit;
+      }
+
+      [role='button'] {
+        cursor: pointer;
+      }
+
+      [list]::-webkit-calendar-picker-indicator {
+        display: none;
+      }
+
+      [type='button'],
+      [type='reset'],
+      [type='submit'] {
+        -webkit-appearance: button;
+      }
+
+      [type='button']:not(:disabled),
+      [type='reset']:not(:disabled),
+      [type='submit']:not(:disabled) {
+        cursor: pointer;
+      }
+
+      ::-moz-focus-inner {
+        padding: 0;
+        border-style: none;
+      }
+
+      ::-webkit-datetime-edit-day-field,
+      ::-webkit-datetime-edit-fields-wrapper,
+      ::-webkit-datetime-edit-hour-field,
+      ::-webkit-datetime-edit-minute,
+      ::-webkit-datetime-edit-month-field,
+      ::-webkit-datetime-edit-text,
+      ::-webkit-datetime-edit-year-field {
+        padding: 0;
+      }
+
+      ::-webkit-inner-spin-button {
+        height: auto;
+      }
+
+      [type='search'] {
+        outline-offset: -2px;
+        -webkit-appearance: textfield;
+      }
+
+      ::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+
+      ::-webkit-color-swatch-wrapper {
+        padding: 0;
+      }
+
+      ::file-selector-button {
+        font: inherit;
+      }
+
+      ::-webkit-file-upload-button {
+        font: inherit;
+        -webkit-appearance: button;
+      }
+
+      [hidden] {
+        display: none !important;
+      }
+
+      .blockquote {
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+      }
+
+      .blockquote > :last-child {
+        margin-bottom: 0;
+      }
+
+      @-webkit-keyframes progress-bar-stripes {
+        0% {
+          background-position-x: 1rem;
+        }
+      }
+
+      @keyframes progress-bar-stripes {
+        0% {
+          background-position-x: 1rem;
+        }
+      }
+
+      @-webkit-keyframes spinner-border {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes spinner-border {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @-webkit-keyframes spinner-grow {
+        0% {
+          transform: scale(0);
+        }
+
+        50% {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      @keyframes spinner-grow {
+        0% {
+          transform: scale(0);
+        }
+
+        50% {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .align-top {
+        vertical-align: top !important;
+      }
+
+      .d-flex {
+        display: flex !important;
+      }
+
+      .top-0 {
+        top: 0 !important;
+      }
+
+      .top-50 {
+        top: 50% !important;
+      }
+
+      .top-100 {
+        top: 100% !important;
+      }
+
+      .start-0 {
+        left: 0 !important;
+      }
+
+      .start-50 {
+        left: 50% !important;
+      }
+
+      .start-100 {
+        left: 100% !important;
+      }
+
+      .border {
+        border: 1px solid #dee2e6 !important;
+      }
+
+      .border-0 {
+        border: 0 !important;
+      }
+
+      .border-top {
+        border-top: 1px solid #dee2e6 !important;
+      }
+
+      .border-top-0 {
+        border-top: 0 !important;
+      }
+
+      .border-start {
+        border-left: 1px solid #dee2e6 !important;
+      }
+
+      .border-start-0 {
+        border-left: 0 !important;
+      }
+
+      .border-dark {
+        border-color: #212529 !important;
+      }
+
+      .border-1 {
+        border-width: 1px !important;
+      }
+
+      .border-2 {
+        border-width: 2px !important;
+      }
+
+      .border-3 {
+        border-width: 3px !important;
+      }
+
+      .border-4 {
+        border-width: 4px !important;
+      }
+
+      .border-5 {
+        border-width: 5px !important;
+      }
+
+      .w-25 {
+        width: 25% !important;
+      }
+
+      .w-50 {
+        width: 50% !important;
+      }
+
+      .w-75 {
+        width: 75% !important;
+      }
+
+      .w-100 {
+        width: 100% !important;
+      }
+
+      .h-25 {
+        height: 25% !important;
+      }
+
+      .h-50 {
+        height: 50% !important;
+      }
+
+      .h-75 {
+        height: 75% !important;
+      }
+
+      .h-100 {
+        height: 100% !important;
+      }
+
+      .flex-column {
+        flex-direction: column !important;
+      }
+
+      .align-items-start {
+        align-items: flex-start !important;
+      }
+
+      .align-items-center {
+        align-items: center !important;
+      }
+
+      .mt-0 {
+        margin-top: 0 !important;
+      }
+
+      .mt-1 {
+        margin-top: 0.25rem !important;
+      }
+
+      .mt-2 {
+        margin-top: 0.5rem !important;
+      }
+
+      .mt-3 {
+        margin-top: 1rem !important;
+      }
+
+      .mt-4 {
+        margin-top: 1.5rem !important;
+      }
+
+      .mt-5 {
+        margin-top: 3rem !important;
+      }
+
+      .mb-0 {
+        margin-bottom: 0 !important;
+      }
+
+      .mb-1 {
+        margin-bottom: 0.25rem !important;
+      }
+
+      .mb-2 {
+        margin-bottom: 0.5rem !important;
+      }
+
+      .mb-3 {
+        margin-bottom: 1rem !important;
+      }
+
+      .mb-4 {
+        margin-bottom: 1.5rem !important;
+      }
+
+      .mb-5 {
+        margin-bottom: 3rem !important;
+      }
+
+      .p-0 {
+        padding: 0 !important;
+      }
+
+      .p-1 {
+        padding: 0.25rem !important;
+      }
+
+      .p-2 {
+        padding: 0.5rem !important;
+      }
+
+      .p-3 {
+        padding: 1rem !important;
+      }
+
+      .p-4 {
+        padding: 1.5rem !important;
+      }
+
+      .p-5 {
+        padding: 3rem !important;
+      }
+
+      .pt-0 {
+        padding-top: 0 !important;
+      }
+
+      .pt-1 {
+        padding-top: 0.25rem !important;
+      }
+
+      .pt-2 {
+        padding-top: 0.5rem !important;
+      }
+
+      .pt-3 {
+        padding-top: 1rem !important;
+      }
+
+      .pt-4 {
+        padding-top: 1.5rem !important;
+      }
+
+      .pt-5 {
+        padding-top: 3rem !important;
+      }
+
+      .pb-0 {
+        padding-bottom: 0 !important;
+      }
+
+      .pb-1 {
+        padding-bottom: 0.25rem !important;
+      }
+
+      .pb-2 {
+        padding-bottom: 0.5rem !important;
+      }
+
+      .pb-3 {
+        padding-bottom: 1rem !important;
+      }
+
+      .pb-4 {
+        padding-bottom: 1.5rem !important;
+      }
+
+      .pb-5 {
+        padding-bottom: 3rem !important;
+      }
+
+      .fw-normal {
+        font-weight: 400 !important;
+      }
+
+      .fw-bold {
+        font-weight: 700 !important;
+      }
+    </style>
+    %sapper.scripts% %sapper.styles% %sapper.head%
+  </head>
+
+  <body class="d-flex flex-column align-items-center">
+    <div class="pb-5 w-75">
+      <div class="mb-5" id="sapper">%sapper.html%</div>
+      <script src="https://gist.github.com/rishi-raj-jain/6ca32ef2f6858070e1434edc3ec9b521.js"></script>
+      <h2 class="mt-5 fw-normal">Importance of Security Headers</h2>
+      <blockquote class="mt-3 border-start border-dark p-2">
+        As per
+        <a
+          rel="noopener noreferrer"
+          target="_blank"
+          href="https://ieeexplore.ieee.org/document/8405025"
+          >HTTP security headers analysis of top one million websites</a
+        >, "Globally, including both HTTP and HTTPS sites, CSP is implemented in 1.6% and CSP report
+        only version in just 0.2% of sites."
+      </blockquote>
+      <p class="mt-3">
+        Shocking! right? and the lack of CSP HTTP Header takes down the defense mechanisms against
+        Cross-Site Scripting (XSS) and other client-side injection attacks
+        <a
+          rel="noopener noreferrer"
+          target="_blank"
+          href="https://en.wikipedia.org/wiki/Samy_(computer_worm)"
+          >which once took down MySpace.</a
+        >
+      </p>
+      <p class="fw-bold">
+        Author:
+        <a rel="noopener noreferrer" target="_blank" href="https://rishi.app/about"
+          >Rishi Raj Jain</a
+        >
+      </p>
+    </div>
+  </body>
 </html>
