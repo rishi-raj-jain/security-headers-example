@@ -8,7 +8,6 @@ const codeHTML = await markdownToHtml(fs.readFileSync(join(process.cwd(), 'route
 
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="/css/dark.css" />
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1" name="viewport" />
     <title>Instantly secure your website with Security Headers and Edgio</title>
@@ -39,7 +38,7 @@ const codeHTML = await markdownToHtml(fs.readFileSync(join(process.cwd(), 'route
     <meta name="twitter:url" property="twitter:url" content="https://rishi-raj-jain-security-headers-example-default.layer0-limelight.link" />
   </head>
   <body class="flex w-full flex-col items-center">
-    <div class="w-full md:max-w-2xl p-10 sm:p-0">
+    <div class="w-full md:max-w-2xl p-10 sm:p-0 flex flex-col items-center">
       <h1 class="mt-8 text-4xl font-bold text-gray-400">
         Instantly
         <span class="bg-gradient-to-br from-blue-400 via-pink-700 to-teal-600 bg-clip-text text-transparent">secure</span>
@@ -63,8 +62,8 @@ const codeHTML = await markdownToHtml(fs.readFileSync(join(process.cwd(), 'route
           Edgio
         </a>
       </h2>
-      <article class="mt-12 flex flex-col items-center text-sm" set:html={codeHTML} />
-      <h3 class="mt-8 text-3xl font-medium text-gray-600">Importance of Security & Headers</h3>
+      <article class="mt-12 flex w-[90vw] flex-col items-center text-sm" set:html={codeHTML} />
+      <h3 class="w-full text-left mt-8 text-3xl font-medium text-gray-600">Importance of Security & Headers</h3>
       <blockquote class="relative mt-8 flex flex-col">
         <svg
           width="16"
@@ -94,7 +93,7 @@ const codeHTML = await markdownToHtml(fs.readFileSync(join(process.cwd(), 'route
           >which once took down MySpace.</a
         >
       </p>
-      <p class="mt-8 font-bold">
+      <p class="w-full mt-8 font-bold">
         Author: <a
           target="_blank"
           rel="noopener noreferrer"
@@ -106,5 +105,6 @@ const codeHTML = await markdownToHtml(fs.readFileSync(join(process.cwd(), 'route
       </p>
     </div>
     <div class="h-[50px]"></div>
+    <link rel="stylesheet" href="/css/dark.css" />
   </body>
 </html>
