@@ -1,5 +1,5 @@
 ```js
-const { Router } = require("@layer0/core/router");
+const { Router } = require('@edgio/core/router')
 
 const ContentSecurityPolicy = `
   default-src 'self';
@@ -11,25 +11,16 @@ const ContentSecurityPolicy = `
   font-src 'self' *.gstatic.com;
 `;
 
-module.exports= new Router()
-  .get("/", ({ setResponseHeader }) => {
-    setResponseHeader(
-      "Content-Security-Policy",
-      ContentSecurityPolicy.replace(/\n/g, "")
-    );
-    setResponseHeader("X-Content-Type-Options", "nosniff");
-    setResponseHeader("X-Frame-Options", "DENY");
-    setResponseHeader("Cross-Origin-Resource-Policy", "same-origin");
-    setResponseHeader("Cross-Origin-Embedder-Policy", "require-corp");
-    setResponseHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
-    setResponseHeader(
-      "Strict-Transport-Security",
-      "max-age=31536000; includeSubDomains"
-    );
-    setResponseHeader("Referrer-Policy", "origin-when-cross-origin");
-    setResponseHeader(
-      "Permissions-Policy",
-      "camera=(), microphone=(), geolocation=()"
-    );
+export default new Router()
+  .get('/', ({ setResponseHeader }) => {
+    setResponseHeader('Content-Security-Policy', ContentSecurityPolicy.replace(/\n/g, ""))
+    setResponseHeader("X-Content-Type-Options", 'nosniff')
+    setResponseHeader('X-Frame-Options', 'DENY')
+    setResponseHeader('Cross-Origin-Resource-Policy', 'same-origin')
+    setResponseHeader('Cross-Origin-Embedder-Policy', 'require-corp')
+    setResponseHeader('Cross-Origin-Opener-Policy', 'same-origin-allow-popups')
+    setResponseHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains')
+    setResponseHeader('Referrer-Policy', 'origin-when-cross-origin')
+    setResponseHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
   })
 ```
