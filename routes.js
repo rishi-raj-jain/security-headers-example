@@ -1,7 +1,7 @@
-// This file was automatically added by layer0 deploy.
+// This file was automatically added by edgio init.
 // You should commit this file to source control.
-const { Router } = require('@layer0/core/router')
-const { sapperRoutes } = require('@layer0/sapper')
+
+const { Router } = require('@edgio/core/router')
 
 const ContentSecurityPolicy = `
   default-src 'self';
@@ -13,8 +13,8 @@ const ContentSecurityPolicy = `
   font-src 'self' *.gstatic.com;
 `
 
-module.exports = new Router()
-  .get('/', ({ setResponseHeader }) => {
+export default new Router()
+  .get({}, ({ setResponseHeader }) => {
     setResponseHeader('Content-Security-Policy', ContentSecurityPolicy.replace(/\n/g, ''))
     setResponseHeader('X-Content-Type-Options', 'nosniff')
     setResponseHeader('X-Frame-Options', 'DENY')
@@ -25,4 +25,4 @@ module.exports = new Router()
     setResponseHeader('Referrer-Policy', 'origin-when-cross-origin')
     setResponseHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
   })
-  .use(sapperRoutes) // automatically adds routes for all files under /pages
+  .static('dist')
