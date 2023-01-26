@@ -12,7 +12,7 @@ const ContentSecurityPolicy = `
 `;
 
 export default new Router()
-  .get('/', ({ setResponseHeader }) => {
+  .match('/:route', ({ setResponseHeader }) => {
     setResponseHeader('Content-Security-Policy', ContentSecurityPolicy.replace(/\n/g, ""))
     setResponseHeader("X-Content-Type-Options", 'nosniff')
     setResponseHeader('X-Frame-Options', 'DENY')
